@@ -27,7 +27,7 @@ test('adds 1 + 2 to equal 3', () => {
 });
 test('adds 1 + 2 to equal 3 ', () => {
   // TODO
-  expect(isPhoneNumber("788-657-3527")).toBe(false);
+  expect(isPhoneNumber("788-657-3527")).toBe(true);
 });
 
 test(' adds 1 + 2 to equal 3', () => {
