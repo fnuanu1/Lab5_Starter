@@ -8,13 +8,13 @@ function init() {
   const img = document.querySelector("img[alt='No image selected']");
   const audio = document.querySelector("audio");
   const volumeSlider = document.getElementById("volume");
-  const volumeIcon = document.querySelector("img[alt='Volume level 2']");
-  const playButton = document.querySelector("button");
-  const jsConfetti = new JSConfetti();
+  const volumePic = document.querySelector("img[alt='Volume level 2']");
+  const button = document.querySelector("button");
+  const confetti = new JSConfetti();
 
   hornSelect.addEventListener("change", (event) => {
-    const value = event.target.value;
-    switch (value) {
+    const selected = event.target.value;
+    switch (selected) {
       case "air-horn":
         img.src = "assets/images/air-horn.svg";
         audio.src = "assets/audio/air-horn.mp3";
@@ -34,23 +34,23 @@ function init() {
     const volume = volumeSlider.value;
     audio.volume = volume / 100;
 
-    // Update volume icon
+    // Update volume picture thing
     if (volume == 0) {
-      volumeIcon.src = "assets/icons/volume-level-0.svg";
+      volumePic.src = "assets/icons/volume-level-0.svg";
     } else if (volume < 33) {
-      volumeIcon.src = "assets/icons/volume-level-1.svg";
+      volumePic.src = "assets/icons/volume-level-1.svg";
     } else if (volume < 67) {
-      volumeIcon.src = "assets/icons/volume-level-2.svg";
+      volumePic.src = "assets/icons/volume-level-2.svg";
     } else {
-      volumeIcon.src = "assets/icons/volume-level-3.svg";
+      volumePic.src = "assets/icons/volume-level-3.svg";
     }
   });
 
-  playButton.addEventListener("click", () => {
+  button.addEventListener("click", () => {
     if (audio.src) {
       audio.play();
       if (hornSelect.value === "party-horn") {
-        jsConfetti.addConfetti();
+        confetti.addConfetti();
       }
     }
   });

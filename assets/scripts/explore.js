@@ -4,10 +4,10 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
   const voiceSelect = document.getElementById("voice-select");
-  const textArea = document.getElementById("text-to-speak");
+  const text = document.getElementById("text-to-speak");
   const button = document.querySelector("button");
-  const faceImg = document.querySelector("img");
-  let voices=[];
+  const emoji = document.querySelector("img");
+  let voices = [];
   function populateVoiceList() {
     if (typeof speechSynthesis === "undefined") {
       return;
@@ -45,27 +45,28 @@ function init() {
 
 button.addEventListener("click", ()  => {
   //event.preventDefault();
-  if (!textArea.value || voiceSelect.selectedIndex < 1) return;
+  if (!text.value || voiceSelect.selectedIndex < 1) return;
 
-  const utterThis = new SpeechSynthesisUtterance(textArea.value);
+  const input = new SpeechSynthesisUtterance(text.value);
   const selectedOption = voiceSelect.selectedOptions[0].getAttribute("data-name");
   //const selectedlang = voiceSelect.selectedOptions[0].getAttribute("data-lang");
 
   for (let i = 0; i < voices.length; i++) {
     if (voices[i].name === selectedOption) {
-      utterThis.voice = voices[i];
+      input.voice = voices[i];
     }
   }
 
-  utterThis.onstart = () => {
-    faceImg.src = "assets/images/smiling-open.png"; // open mouth
+  //face change
+  input.onstart = () => {
+    emoji.src = "assets/images/smiling-open.png";
   };
 
-  utterThis.onend = () => {
-    faceImg.src = "assets/images/smiling.png"; // closed mouth
+  input.onend = () => {
+    emoji.src = "assets/images/smiling.png";
   };
 
-  speechSynthesis.speak(utterThis);
+  speechSynthesis.speak(input);
 
 });
 

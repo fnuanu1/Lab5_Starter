@@ -13,24 +13,24 @@ import {
 //2 test true and 2 test false
 
 //phone 1st
-test('adds 1 + 2 to equal 3', () => {
+test('bracket format', () => {
   // TODO
   expect(isPhoneNumber(("(657) 357-2216"))).toBe(true);
 });
-test('adds 1 + 2 to equal 3', () => {
+test('string', () => {
   // TODO
   expect(isPhoneNumber("bro")).toBe(false);
 });
-test('adds 1 + 2 to equal 3', () => {
+test('not a phone number', () => {
   // TODO
   expect(isPhoneNumber(657)).toBe(false);
 });
-test('adds 1 + 2 to equal 3 ', () => {
+test('regular with dashes', () => {
   // TODO
   expect(isPhoneNumber("788-657-3526")).toBe(true);
 });
 
-test(' adds 1 + 2 to equal 3', () => {
+test('no space with bracket and dash', () => {
   // TODO
   expect(isPhoneNumber(("(657)357-3216"))).toBe(true);
 });
@@ -39,7 +39,7 @@ test(' adds 1 + 2 to equal 3', () => {
 
 
 //2nd
-test('email', () => {
+test('word', () => {
   // TODO
   expect(isEmail(("fun"))).toBe(false);
 });
@@ -47,7 +47,7 @@ test('email', () => {
   // TODO
   expect(isEmail(("fanu@ucsd.edu"))).toBe(true);
 });
-test('email', () => {
+test('number', () => {
   // TODO
   expect(isEmail(("576"))).toBe(false);
 });
@@ -55,30 +55,30 @@ test('email', () => {
   // TODO
   expect(isEmail(("fanu@gmail.com"))).toBe(true);
 });
-test('email', () => {
+test('no complete email', () => {
   // TODO
   expect(isEmail(("yay@gmail"))).toBe(false);
 });
 
 
 //3rd
-test('strong', () => {
+test('capital with letter and more than 4', () => {
   // TODO
   expect(isStrongPassword(("Star7g"))).toBe(true);
 });
-test('strong', () => {
+test('not started with a letter', () => {
   // TODO
   expect(isStrongPassword(("7star"))).toBe(false);
 });
-test('strong', () => {
+test('not long enough', () => {
   // TODO
   expect(isStrongPassword(("stg"))).toBe(false);
 });
-test('strong', () => {
+test('symbol not allowed', () => {
   // TODO
   expect(isStrongPassword(("$yas"))).toBe(false);
 });
-test('strong', () => {
+test('decent valid password', () => {
   // TODO
   expect(isStrongPassword(("starN72"))).toBe(true);
 });
@@ -87,20 +87,20 @@ test('strong', () => {
 
 
 //4th
-test('strong', () => {
+test('accurate date', () => {
   // TODO
   //XX can be 1 or 2 digits long and YYYY is always 4 digits long.
   expect(isDate(("23/5/2024"))).toBe(true);
 });
-test('strong', () => {
+test('year is more than 4', () => {
   // TODO
   expect(isDate(("23/5/20245"))).toBe(false);
 });
-test('strong', () => {
+test('no dash format', () => {
   // TODO
   expect(isDate(("23052005"))).toBe(false);
 });
-test('strong', () => {
+test('single for date and month and early year', () => {
   // TODO
   expect(isDate(("2/2/0005"))).toBe(true);
 });
@@ -110,19 +110,19 @@ test('strong', () => {
 
 //5th
 //isHexColor
-test('strong', () => {
+test('without hashtag', () => {
   // TODO
   expect(isHexColor(("FFF"))).toBe(true);
 });
-test('strong', () => {
+test('with hashtag', () => {
   // TODO
   expect(isHexColor(("#FFFFFF"))).toBe(true);
 });
-test('strong', () => {
+test('not 3 or 6 for hashtag', () => {
   // TODO
   expect(isHexColor(("#FFFF"))).toBe(false);
 });
-test('strong', () => {
+test('letters not in hex', () => {
   // TODO
   expect(isHexColor(("#ZZZ"))).toBe(false);
 });
